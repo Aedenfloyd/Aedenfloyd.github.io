@@ -100,7 +100,7 @@ function changeAnimationType() {
     }
     return;
   }
-  if (jumpTimer > 0 && !player.onGround) {
+  if (jumpTimer > 3 && !player.onGround) {
     currentAnimationType = animationTypes.jump;
     jumpTimer--;
   } else {
@@ -121,8 +121,8 @@ function changeAnimationType() {
           duckTimer = DUCK_COUNTER_IDLE_VALUE * 2 - frameIndex;
         }
       } else if (
-        duckTimer === 0 ||
-        currentAnimationType === animationTypes.walk
+        duckTimer === 10 ||
+        currentAnimationType === animationTypes.squat
       ) {
         currentAnimationType = animationTypes.frontIdle;
       }
@@ -338,7 +338,7 @@ function resolveCollision(objx, objy, objw, objh) {
 
 function projectileCollision() {
   //checking if the player is dead
-  if (currentAnimationType === animationTypes.frontDeath) {
+  if (currentAnimationType === animationTypes.backDeath) {
     return;
   }
 
@@ -388,7 +388,7 @@ function badPlatformCollision() {
 }
 
 function deathOfPlayer() {
-  ctx.fillStyle = "grey";
+  ctx.fillStyle = "yellow";
   ctx.fillRect(
     canvas.width / 4,
     canvas.height / 6,
