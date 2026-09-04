@@ -14,7 +14,7 @@ let gridMade = false;
 
 // Base game variables
 const frameRate = 60;
-const playerScale = 0.8; //makes the player just a bit smaller. Doesn't affect the hitbox, just the image
+const playerScale = .8; //makes the player just a bit smaller. Doesn't affect the hitbox, just the image
 
 // Player variables
 const player = {
@@ -54,7 +54,7 @@ const animationTypes = {
   jump: "jump",
   lazer: "lazer",
   run: "run",
-  stop: "stop",
+  stop: "run",
   walk: "walk",
 };
 let currentAnimationType = animationTypes.run;
