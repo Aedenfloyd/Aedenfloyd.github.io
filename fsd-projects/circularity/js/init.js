@@ -22,6 +22,7 @@ var init = function (window) {
         // TODO 1 : Declare and initialize our variables
 
         var circles =[];
+        
 
         // TODO 2 : Create a function that draws a circle 
         
@@ -44,10 +45,18 @@ circles.push(circle);
 
         // TODO 7 : Use a loop to create multiple circles
 
-for (var i = 0; i <= 500; i++) {
+for (var i = 0; i <= 60; i++) {
     drawCircle();
 }
-
+// Initialize gamification features (unlocked after completing educational TODOs)
+Gamification.init({
+    canvas: canvas,
+    view: view,
+    draw: draw,
+    physikz: physikz,
+    circles: circles,
+    game: game
+});
 
         ///////////////////
         // PROGRAM LOGIC //
@@ -79,6 +88,7 @@ for (var i = 0; i <= 500; i++) {
             physikz.updatePosition(circles[i]);
             game.checkCirclePosition(circles[i]);
         }
+        Gamification.update();
         }
         /* 
         This Function should check the position of a circle that is passed to the 
@@ -102,6 +112,8 @@ for (var i = 0; i <= 500; i++) {
             if(circle.y <0){
                 circle.y = canvas.height
             }
+
+
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
